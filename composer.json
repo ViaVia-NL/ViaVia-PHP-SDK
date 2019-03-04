@@ -1,0 +1,21 @@
+{
+    "name": "viavia-nl/viavia-php-sdk",
+    "description": "ViaVia rest api sdk",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "ext-json": "*"
+    },
+    "authors": [
+        {
+            "name": "Sander de Joonge",
+            "email": "sander@web-weave.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ViaVia\\SDK\\": [
+                "src/"
+            ]
+        }
+    }
+}
