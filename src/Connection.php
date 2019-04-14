@@ -16,7 +16,11 @@ class Connection
 
 	public function __construct($apiKey = null)
 	{
-		$this->apiKey = $apiKey;
+		if(getenv('VIAVIA_INTERNAL')) {
+			$this->apiKey = auth()->user()->api_token;
+		} else {
+			$this->apiKey = $apiKey;
+		}
 	}
 
 	/**
