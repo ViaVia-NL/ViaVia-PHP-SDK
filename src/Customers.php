@@ -25,7 +25,7 @@ class Customers
 	public function upsertCustomer(Customer $customer)
 	{
 		if(getenv('VIAVIA_INTERNAL')) {
-			\App\Jobs\upsertProduct::dispatch($customer->toArray(), auth()->user());
+			\App\Jobs\upsertCustomer::dispatch($customer->toArray(), auth()->user());
 		} else {
 			return $this->connection->post('customers/upsert', $customer->toArray());
 		}

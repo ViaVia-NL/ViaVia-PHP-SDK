@@ -55,4 +55,20 @@ class ViaVia
 		return new Products($this->connection);
 	}
 
+	/**
+	 * @return Customers
+	 */
+	public function customers()
+	{
+		return new Customers($this->connection);
+	}
+
+	/**
+	 * @return RedirectUri
+	 */
+	public function redirecturi()
+	{
+		return new RedirectUri($this->connection);
+	}
+
 }
