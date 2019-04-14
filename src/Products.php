@@ -25,25 +25,18 @@ class Products
 	public function upsertProduct(Product $product)
 	{
 		if(getenv('VIAVIA_INTERNAL')) {
-			\App\Jobs\CreateProduct::dispatch($product->toArray(), auth()->user())->onQueue('products');;
+			\App\Jobs\upsertProduct::dispatch($product->toArray(), auth()->user());
 		} else {
 			return $this->connection->post('products/upsert', $product->toArray());
 		}
 	}
 
 	/**
-	 * @param array $products
 	 * @return mixed
 	 * @throws \Exception
 	 */
-	public function bulkUpsertProducts(array $products)
+	public function getAvailableAttributes()
 	{
-		foreach($products as $product) {
-			if(getenv('VIAVIA_INTERNAL')) {
-				\App\Jobs\CreateProduct::dispatch($product->toArray(), auth()->user())->onQueue('products');;
-			} else {
-				return $this->connection->post('products/upsert', $product->toArray());
-			}
-		}
+		return $this->connection->get('attributes/product');
 	}
 }

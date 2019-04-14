@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 
 class Connection
 {
-	protected $apiUrl = 'https://dashboard.viavia.cloud/api/';
+	protected $apiUrl = 'https://api.viavia.cloud/api/';
 
 	protected $apiKey;
 
@@ -55,7 +55,7 @@ class Connection
 			if ($e->hasResponse()) {
 				$this->parseResponse($e->getResponse());
 			}
-			throw new \Exception($e->getMessage(), $e->getResponse()->getStatusCode());
+			throw new \Exception($e->getMessage());
 		}
 	}
 
