@@ -64,11 +64,11 @@ class ViaVia
 	}
 
 	/**
-	 * @return RedirectUri
+	 * @return CallBackUri
 	 */
-	public function redirecturi()
+	public function callbackUri()
 	{
-		return new RedirectUri($this->connection);
+		return new CallBackUri($this->connection);
 	}
 
 }

@@ -2,7 +2,7 @@
 
 namespace ViaVia\SDK;
 
-class RedirectUri
+class CallBackUri
 {
 	protected $connection;
 
@@ -15,8 +15,8 @@ class RedirectUri
 		$this->connection = $connection;
 	}
 
-	public function requestRedirectUri($channel, $type)
+	public function requestCallBackUri($channel, $type, $reference)
 	{
-		return $this->connection->post('redirecturi/new', ['channel' => $channel, 'type' => $type]);
+		return $this->connection->post('callbackuri/new', ['channel' => $channel, 'type' => $type, 'reference' => $reference]);
 	}
 }
